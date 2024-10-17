@@ -56,7 +56,22 @@
             color: #333;
         }
 
-	
+	/* Styles for mobile devices (max-width of 768px) */
+	@media screen and (max-width: 768px) {
+  	/* Mobile-specific styles */
+  	h1 {
+   	 font-size: 20px;
+  	}
+
+ 	.container {
+    	width: 100%; /* Full width on mobile */
+   	padding: 10px;
+ 	 }
+
+  	.nav {
+    	display: block; /* Stack navigation links vertically on mobile */
+  	}
+		
 	img {
   	opacity: 0.1;
 	}
@@ -140,7 +155,27 @@
                 font-size: 1.2em;
             }
         }
+/* Hide nav links by default for mobile */
+.nav-links {
+  display: none;
+}
 
+/* Hamburger icon */
+.menu-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 769px) {
+  /* On desktop, show nav as a regular horizontal bar */
+  .nav-links {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: none; /* Hide hamburger icon on desktop */
+  }
+}
 
         /* Default styling for the link */
         #registrationLink {
@@ -173,7 +208,8 @@
     	<p>(ପ୍ରଥମ ଏଡିସନ/ସଂସ୍କରଣ) </p>
 	<br>
         <nav>
-	<ul>
+	<div class="menu-icon" onclick="toggleMenu()">&#9776; Menu</div>
+	<ul id="nav-links" class="nav-links">
                 <a href="#about" >ଆମ ପ୍ରଚେଷ୍ଟା</a>
             	<a href="#event">ଅନୁଷ୍ଠାନ ବିବରଣୀ</a>
             	<a href="#registration" id="registrationLink1">ପଞ୍ଜିକରଣ</a>            	
@@ -440,6 +476,14 @@
             registrationLink2.classList.add("blinking");
         }
 
+function toggleMenu() {
+  var links = document.getElementById("nav-links");
+  if (links.style.display === "block") {
+    links.style.display = "none";
+  } else {
+    links.style.display = "block";
+  }
+}
 	
     </script>
 
